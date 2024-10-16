@@ -105,7 +105,7 @@ const SignIn = () => {
               Have no account yet?
             </p>
             <a
-              href="/signun"
+              href="/signup"
               className="block border border-[#BA68C8] text-[#BA68C8] p-3 rounded-[40px] font-medium hover:text-white text-center hover:bg-purple-700 transition mt-4"
             >
               Registration

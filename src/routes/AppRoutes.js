@@ -5,6 +5,7 @@ import SignUp from "../pages/auth/SignUp";
 import ProductDashboard from "../pages/ProductDashboard";
 import Cart from "../pages/Cart";
 import PrivateRoute from "../components/PrivateRoute";
+import Layout from "../layout/Layout";
 
 const AppRoutes = () => {
   return (
@@ -14,17 +15,21 @@ const AppRoutes = () => {
       <Route
         path="/products"
         element={
-          <PrivateRoute>
-            <ProductDashboard />
-          </PrivateRoute>
+          <Layout>
+            <PrivateRoute>
+              <ProductDashboard />
+            </PrivateRoute>
+          </Layout>
         }
       />
       <Route
         path="/cart"
         element={
-          <PrivateRoute>
-            <Cart />
-          </PrivateRoute>
+          <Layout>
+            <PrivateRoute>
+              <Cart />
+            </PrivateRoute>
+          </Layout>
         }
       />
     </Routes>
