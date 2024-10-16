@@ -3,8 +3,11 @@ import { useDispatch } from "react-redux";
 import { setUser } from "../../redux/slices/cartSlice";
 import { login } from "../../redux/slices/authSlice";
 import { useNavigate } from "react-router-dom";
+import Welcome from "../../components/auth/Welcome";
 
 const SignIn = () => {
+  const [showPassword, setShowPassword] = useState(false);
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -41,34 +44,75 @@ const SignIn = () => {
   };
 
   return (
-    <div style={{ margin: "20px" }}>
-      <h1>Sign In</h1>
-      <form onSubmit={handleSignIn}>
-        <div>
-          <label>Email:</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+    <div className="md:min-h-screen flex justify-center items-center ">
+      <div className="xl:max-w-[1218px] w-full flex justify-center flex-col md:flex-row">
+        {/* Left Side - Image and Text */}
+        <Welcome />
+        {/* Right Side - SignIn Form */}
+        <div className="xl:max-w-[486px] w-full bg-white flex flex-col justify-center items-center  xl:rounded-r-3xl lg:p-16 p-10">
+          <h2 className="text-2xl font-semibold md:mb-16 mb-10">Welcome</h2>
+          <form onSubmit={handleSignIn} className="w-full ">
+            <div className="mb-4 relative">
+              <img
+                src="/email.svg"
+                alt="form email"
+                className=" absolute top-2 left-2"
+              />
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                className={`w-full pl-9 p-2 border border-[#D0D0D0] placeholder:text-[#828282]  rounded-lg focus:outline-none focus:border-purple-500`}
+                placeholder="Enter your email"
+              />
+            </div>
+            <div className="mb-4 relative">
+              <div className="relative">
+                <img
+                  src="/password.svg"
+                  alt="form password"
+                  className=" absolute top-2 left-2"
+                />
+                <input
+                  type={showPassword ? "text" : "password"}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className={`w-full pl-9 p-2 border border-[#D0D0D0] placeholder:text-[#828282]  rounded-lg focus:outline-none focus:border-purple-500`}
+                  required
+                  minLength="6"
+                  placeholder="Enter your password"
+                />
+                <img
+                  src="/view.svg"
+                  alt="form password view"
+                  className=" absolute top-2 right-2 cursor-pointer"
+                  onClick={() => setShowPassword(!showPassword)}
+                />
+              </div>
+            </div>
+            {error && <p style={{ color: "red" }}>{error}</p>}
+
+            <button
+              type="submit"
+              className="w-full bg-[#89089F] text-white p-3 rounded-[40px] font-medium hover:bg-purple-700 transition mt-8"
+            >
+              Sign In
+            </button>
+
+            {/* Already have an account */}
+            <p className="mt-8 text-center text-[#828282] text-sm">
+              Have no account yet?
+            </p>
+            <a
+              href="/signun"
+              className="block border border-[#BA68C8] text-[#BA68C8] p-3 rounded-[40px] font-medium hover:text-white text-center hover:bg-purple-700 transition mt-4"
+            >
+              Registration
+            </a>
+          </form>
         </div>
-        <div>
-          <label>Password:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            minLength="6"
-          />
-        </div>
-        {error && <p style={{ color: "red" }}>{error}</p>}
-        <button type="submit">Sign In</button>
-      </form>
-      <p>
-        Don't have an account? <a href="/signup">Sign Up</a>
-      </p>
+      </div>
     </div>
   );
 };
