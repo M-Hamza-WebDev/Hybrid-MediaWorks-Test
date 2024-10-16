@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/slices/cartSlice";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const products = [
   { id: 1, name: "Product 1", price: 100, description: "A great product" },
@@ -34,6 +34,25 @@ const ProductDashboard = () => {
 
   return (
     <div>
+      <NavLink
+        to="/cart"
+        className="flex justify-center items-center  p-2 bg-white  rounded-[99px] w-full max-w-[156.67px] h-[56px] ml-auto"
+      >
+        <img src="/cart.svg" alt="Cart Icon" className="  object-cover mr-4" />
+        <span className="text-[#09090A]">My Cart</span>
+      </NavLink>
+      <div className="flex">
+        <img
+          src="/Essential-Items.png"
+          alt="Essential Items"
+          className=" w-[68%] rounded-3xl mr-6 "
+        />
+        <img
+          src="/50-percent-off.png"
+          alt="50 percent off"
+          className="w-[30%] "
+        />
+      </div>
       <h1>Product Dashboard</h1>
       <button onClick={goToCart}>Go to Cart</button>
       <div className="product-grid">

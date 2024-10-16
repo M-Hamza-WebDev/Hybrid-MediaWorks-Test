@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
   return (
-    <div className="h-screen bg-gray-100 w-[266px] flex flex-col border-r border-[#EFEFEF] p-6">
+    <div className="h-screen bg-white w-[266px] flex flex-col border-r border-[#EFEFEF] p-6">
       {/* User Info Section */}
 
       <div className="flex items-center">
@@ -15,63 +15,80 @@ const Sidebar = () => {
       </div>
 
       {/* Navigation Links */}
-      <nav className="flex-1 px-4 py-8 space-y-6">
+      <nav className="flex-1 mt-[44px]">
         <NavLink
           to="/dashboard"
-          className="flex items-center space-x-4 py-3 px-4 bg-purple-600 text-white rounded-md"
-          activeClassName="bg-purple-700"
+          className="flex items-center  p-4 bg-[#89089F]  rounded-lg mb-6"
         >
-          <span className="material-icons">dashboard</span>
-          <span>Dashboard</span>
+          <img
+            src="/dashboard.svg"
+            alt="Dashboard Icon"
+            className="  object-cover mr-4"
+          />
+          <span className="text-white">Dashboard</span>
         </NavLink>
 
         <NavLink
           to="/products"
-          className="flex items-center space-x-4 py-3 px-4 text-gray-600 hover:bg-gray-200 rounded-md"
-          activeClassName="bg-purple-600 text-white"
+          className="flex items-center  p-4 bg-white  rounded-lg mb-6"
         >
-          <span className="material-icons">inventory_2</span>
-          <span>Products</span>
+          <img
+            src="/products.svg"
+            alt="Products Icon"
+            className="  object-cover mr-4"
+          />
+          <span className="text-[#09090A]">Products</span>
         </NavLink>
 
         <NavLink
           to="/notifications"
-          className="flex items-center space-x-4 py-3 px-4 text-gray-600 hover:bg-gray-200 rounded-md"
-          activeClassName="bg-purple-600 text-white"
+          className="flex items-center  p-4 bg-white  rounded-lg mb-6"
         >
-          <span className="material-icons">notifications</span>
-          <span>Notifications</span>
+          <img
+            src="/notifications.svg"
+            alt="Notifications Icon"
+            className="  object-cover mr-4"
+          />
+          <span className="text-[#09090A]">Notifications</span>
         </NavLink>
 
         <NavLink
           to="/analytics"
-          className="flex items-center space-x-4 py-3 px-4 text-gray-600 hover:bg-gray-200 rounded-md"
-          activeClassName="bg-purple-600 text-white"
+          className="flex items-center  p-4 bg-white  rounded-lg mb-6"
         >
-          <span className="material-icons">analytics</span>
-          <span>Analytics</span>
+          <img
+            src="/analytics.svg"
+            alt="Analytics Icon"
+            className="  object-cover mr-4"
+          />
+          <span className="text-[#09090A]">Analytics</span>
         </NavLink>
 
         <NavLink
           to="/inventory"
-          className="flex items-center space-x-4 py-3 px-4 text-gray-600 hover:bg-gray-200 rounded-md"
-          activeClassName="bg-purple-600 text-white"
+          className="flex items-center  p-4 bg-white  rounded-lg "
         >
-          <span className="material-icons">inventory</span>
-          <span>Inventory</span>
+          <img
+            src="/inventory.svg"
+            alt="Inventory Icon"
+            className="  object-cover mr-4"
+          />
+          <span className="text-[#09090A]">Inventory</span>
         </NavLink>
       </nav>
 
       {/* Logout Button */}
-      <div className="px-4 py-6">
-        <NavLink
-          to="/logout"
-          className="flex items-center space-x-4 py-3 px-4 text-gray-600 hover:bg-gray-200 rounded-md"
-        >
-          <span className="material-icons">logout</span>
-          <span>Logout</span>
-        </NavLink>
-      </div>
+      <NavLink
+        to="/logout"
+        className="flex items-center  p-4 bg-white  rounded-lg "
+      >
+        <img
+          src="/logout.svg"
+          alt="Logout Icon"
+          className="  object-cover mr-4"
+        />
+        <span className="text-[#09090A]">Logout</span>
+      </NavLink>
     </div>
   );
 };
