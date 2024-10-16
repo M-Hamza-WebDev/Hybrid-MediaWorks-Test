@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import SignIn from "../pages/SignIn";
-import SignUp from "../pages/SignUp";
+import SignIn from "../pages/auth/SignIn";
+import SignUp from "../pages/auth/SignUp";
 import ProductDashboard from "../pages/ProductDashboard";
 import Cart from "../pages/Cart";
 import PrivateRoute from "../components/PrivateRoute";

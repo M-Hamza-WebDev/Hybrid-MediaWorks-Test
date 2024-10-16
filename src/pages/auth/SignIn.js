@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { setUser } from "../redux/slices/cartSlice";
-import { login } from "../redux/slices/authSlice";
+import { setUser } from "../../redux/slices/cartSlice";
+import { login } from "../../redux/slices/authSlice";
 import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
