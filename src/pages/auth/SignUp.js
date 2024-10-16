@@ -40,7 +40,7 @@ const SignUp = () => {
     localStorage.setItem("loggedInUser", JSON.stringify(newUser));
     dispatch(login(newUser));
 
-    navigate("/products");
+    navigate("/signin");
   };
 
   return (

@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    // Retrieve the user from localStorage
+    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+    setUser(loggedInUser);
+  }, []);
   return (
     <div className="h-screen bg-white w-[266px] flex flex-col border-r border-[#EFEFEF] p-6">
       {/* User Info Section */}
@@ -9,8 +16,12 @@ const Sidebar = () => {
       <div className="flex items-center">
         <img src="/user.svg" alt="User" className="  object-cover mr-3" />
         <div>
-          <h3 className="font-bold text-[#09090A]">Mark Wood</h3>
-          <p className="text-[#1F1F22] text-sm">marki@demo.com</p>
+          <h3 className="font-bold text-[#09090A]">
+            {user?.username || "Mark Wood"}
+          </h3>
+          <p className="text-[#1F1F22] text-sm break-all">
+            {user?.email || "marki@demo.com"}
+          </p>
         </div>
       </div>
 
