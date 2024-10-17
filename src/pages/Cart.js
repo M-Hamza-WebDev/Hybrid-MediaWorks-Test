@@ -34,9 +34,17 @@ const Cart = () => {
   return (
     <div className="bg-white w-full rounded-3xl p-6">
       {cartItems.length === 0 ? (
-        <p className="font-semibold text-[22px] text-[#1E1E1E]">
-          Your cart is empty.
-        </p>
+        <div className="flex items-center">
+          <img
+            src="/back-arrow.svg"
+            alt="Back Arrow"
+            onClick={() => navigate("/products")}
+            className="cursor-pointer"
+          />
+          <p className="font-semibold text-[22px] text-[#1E1E1E]">
+            Your cart is empty.
+          </p>
+        </div>
       ) : (
         <>
           <div>
